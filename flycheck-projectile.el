@@ -244,7 +244,10 @@ called."
   (require 'projectile)
   (declare-function projectile-acquire-root "projectile" (&optional dir))
   (let ((project (projectile-acquire-root dir)))
-    (display-buffer
+    (let ((buffer "project-errors")))
+    (set-buffer buffer)
+    (evil-local-mode 1)
+    (display-buffer-at-bottom
      (or (and (string= project flycheck-projectile--project)
               ;; The project didn't change *and* we have the old buffer? Reuse
               ;; it.
