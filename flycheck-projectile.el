@@ -194,6 +194,8 @@ Enable in all of PROJECT's buffers."
   (let ((map (copy-keymap flycheck-error-list-mode-map)))
     (define-key map (kbd "RET") #'flycheck-projectile-error-list-goto-error)
     (define-key map (kbd "q") #'flycheck-projectile--quit-kill-window)
+    (define-key map (kbd "j") #'next-line)
+    (define-key map (kbd "k") #'previous-line)
     map))
 (define-derived-mode flycheck-projectile-error-list-mode tabulated-list-mode
   "Flycheck project errors"
